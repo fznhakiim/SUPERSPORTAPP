@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="About.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
+                <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
+            </svg>
+        </a>
+       
+        <ul class="navbar">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html" class="active">About</a></li>
+        </ul>
+        <div class="main">
+            <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
+            <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
+            <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
+            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <script type="text/javascript">
+            let menu = document.querySelector("#menu-icon");
+            let navbar = document.querySelector(".navbar");
+    
+            menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+
+            // Check if user is logged in
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                $('#login-button').hide();
+                $('#register-button').hide();
+                $('.user').show();
+                $('.log-out').show();
+            } else {
+                $('#login-button').show();
+                $('#register-button').show();
+                $('.user').hide();
+                $('.log-out').hide();
+            }
+        </script>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <h1>Tentang Kami</h1>
+                <br>
+                <p>Selamat datang di website kami, platform terbaik untuk memesan dan booking lapangan atau venue olahraga badminton. 
+                <br>Kami memberikan kemudahan bagi Anda untuk memesan lapangan sesuai dengan waktu dan tanggal yang diinginkan tanpa harus datang langsung ke lokasi.
+                </p>
+                <br>
+                <p>Kami juga merangkul komunitas-komunitas olahraga badminton untuk bermain bersama, sehingga Anda dapat berolahraga sekaligus memperluas jaringan pertemanan dan komunitas Anda.</p>
+            </div>
+        </section>
+
+        <section class="vision-mission-section">
+            <div class="container">
+                <h1>Visi dan Misi</h1>
+                <br><br>
+                <div class="vision">
+                    <h2>Visi</h2>
+                    <p>Menjadi platform terbaik dan terpercaya untuk memesan lapangan olahraga badminton di Indonesia, serta mendukung perkembangan komunitas olahraga badminton.</p>
+                </div>
+                <br><br>
+                <div class="mission">
+                    <h2>Misi</h2>
+                    <ul>
+                        <li> Memberikan kemudahan akses dalam pemesanan lapangan olahraga badminton.</li>
+                        <li>Menyediakan layanan yang cepat, mudah, dan terpercaya.</li>
+                        <li> Mendukung dan merangkul komunitas-komunitas olahraga badminton.</li>
+                        <li> Meningkatkan kesadaran dan partisipasi masyarakat dalam olahraga badminton.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="more-info-section">
+            <div class="container">
+                <div class="image-container">
+                    <img src="contactus.jpg" alt="About Us Image">
+                    <p>Untuk informasi lebih lanjut, silahkan hubungi kami melalui halaman kontak kami.</p>
+                    <a href="ContactUs.html" class="button">Lihat Selengkapnya</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Privacy&Policy.html">Privacy & Policy</a></li>
+                        <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="ContactUs.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>How to Reach Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-map-pin-2-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
