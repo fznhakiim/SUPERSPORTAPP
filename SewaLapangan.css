@@ -134,6 +134,21 @@ header {
     color: var(--bg-color);
 }
 
+.log-out {
+    display: flex;
+    align-items: center;
+}
+
+.log-out i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+.main a:hover {
+    color: var(--bg-color);
+}
+
 #menu-icon {
     font-size: 35px;
     color: var(--text-color);
@@ -258,6 +273,7 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px; /* Tambahkan border radius jika diinginkan */
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
 }
 
 .gor-item:hover {
@@ -324,44 +340,40 @@ header {
     border-radius: 5px;
     font-size: 14px;
 }
-
-.dropdown {
-    position: relative;
+/* Tambahan CSS untuk <select> dropdown */
+#city-dropdown {
+    padding: 10px;
+    width: 200px; /* Sesuaikan lebar sesuai kebutuhan */
+    margin-right: 10px; /* Tambahkan jarak di sini */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    appearance: none; /* Hapus tampilan default browser */
 }
 
-.dropdown-toggle {
-    padding: 10px 15px;
+#search-btn {
+    padding: 10px 20px;
     background-color: #333;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 10px; /* Tambahkan jarak di sini */
 }
 
-.dropdown-toggle:hover {
-    background-color: #555; /* Efek hover pada dropdown */
+#search-btn:hover {
+    background-color: #555; /* Efek hover pada button Cari Venue */
 }
 
-.dropdown-content {
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    display: none;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd; /* Efek hover pada pilihan dropdown */
+/* Custom dropdown arrow */
+#city-dropdown {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 16px 16px;
 }
 
 .show {

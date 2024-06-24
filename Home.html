@@ -29,7 +29,7 @@
             <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
             <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
             <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
-            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+            <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
@@ -52,6 +52,24 @@
             navbar.classList.toggle('open');
         }
 
+        // Handle "Pesan Sekarang" click
+    $('.requires-login').click(function(event) {
+        if (!isLoggedIn) {
+            event.preventDefault();
+            $('#login-modal').show();
+        }
+    });
+
+    // Close modal
+    $('.modal .close').click(function() {
+        $('#login-modal').hide();
+    });
+
+    $(window).click(function(event) {
+        if ($(event.target).is('#login-modal')) {
+            $('#login-modal').hide();
+        }
+    });
         </script>
     </header>
     <!-- NAVBAR -->
@@ -100,7 +118,7 @@
                     <br>
                 </ul>
 
-                <a href="pageLain.html" class="read-more">Lihat Selengkapnya →</a>
+                <a href="About.html" class="read-more">Lihat Selengkapnya →</a>
                 
             </div>
             <div class="card-background">
@@ -108,6 +126,13 @@
                 <div class="background-container" id="background-2"></div>
                 <button class="arrow-right" data-target="2">&#9654;</button>
                 </div>
+            </div>
+        </div>
+        <div class="modal" id="login-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Anda harus login terlebih dahulu untuk memesan lapangan.</p>
+                <a href="Login.html" class="button">Login</a>
             </div>
         </div>
     </section>
@@ -127,7 +152,7 @@
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="ContactUs.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -201,25 +226,25 @@
                 $('.log-out').hide();
             }
 
-              // Handle "Sewa Lapangan" click
-              $('.requires-login').click(function(event) {
-                if (!isLoggedIn) {
-                    event.preventDefault();
-                    $('#login-modal').show();
-                }
-            });
+               // Handle "Pesan Sekarang" click
+    $('.requires-login').click(function(event) {
+        if (!isLoggedIn) {
+            event.preventDefault();
+            $('#login-modal').show();
+        }
+    });
 
-            // Close modal
-            $('.modal .close').click(function() {
-                $('#login-modal').hide();
-            });
+    // Close modal
+    $('.modal .close').click(function() {
+        $('#login-modal').hide();
+    });
 
-            $(window).click(function(event) {
-                if ($(event.target).is('#login-modal')) {
-                    $('#login-modal').hide();
-                }
-            });
-        });
+    $(window).click(function(event) {
+        if ($(event.target).is('#login-modal')) {
+            $('#login-modal').hide();
+        }
+    });
+});
     </script>
 </body>
 </html>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komang Ayu Cahya Dewi Alami Cedera Lutut di Semifinal Bulu Tangkis Kaohsiung Masters 2024</title>
-    <link rel="stylesheet" href="Berita.css">
+    <title>About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="ContactUs.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
 </head>
 <body>
     <header>
@@ -17,12 +18,12 @@
                 <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
             </svg>
         </a>
-
+       
         <ul class="navbar">
             <li><a href="Home.html">Home</a></li>
             <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
-            <li><a href="PageBerita.html"  class="active" >Blog</a></li>
-            <li><a href="About.html">About</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html" class="active">About</a></li>
         </ul>
         <div class="main">
             <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
@@ -31,7 +32,6 @@
             <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
-
         <script type="text/javascript">
             let menu = document.querySelector("#menu-icon");
             let navbar = document.querySelector(".navbar");
@@ -41,8 +41,8 @@
                 navbar.classList.toggle('open');
             }
 
-             // Check if user is logged in
-             const isLoggedIn = localStorage.getItem('isLoggedIn');
+            // Check if user is logged in
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (isLoggedIn === 'true') {
                 $('#login-button').hide();
                 $('#register-button').hide();
@@ -54,40 +54,53 @@
                 $('.user').hide();
                 $('.log-out').hide();
             }
+            $(document).ready(function() {
+    $('#contact-form').on('submit', function(event) {
+        event.preventDefault();
+        // Validate form data here
+        
+        // Send form data to server via AJAX or handle as needed
+        alert('Form submitted successfully!');
+    });
+});
         </script>
     </header>
-    <!-- NAVBAR -->
-    <main>
-        <section class="title-section">
-            <h1>Komang Ayu Cahya Dewi Alami Cedera Lutut di Semifinal Bulu Tangkis Kaohsiung Masters 2024</h1>
-            <p>Dapa | 22 Juni 2024</p>
-        </section>
-        <section class="image-section">
-            <img src="BERITAKOMANG.jpg" alt="Komang Ayu Cahya Dewi Alami Cedera Lutut di Semifinal Bulu Tangkis Kaohsiung Masters 2024">
-        </section>
-    
-        <section class="article-content">
-            <p>
-                Pemain tunggal putri Indonesia, Komang Ayu Cahya Dewi, 
-                mengalami cedera lutut bagian belakang saat bertanding di babak semifinal turnamen BWF Super 100 Kaohsiung Masters 2024, Sabtu, 22 Juni 2024.
-                <br><br>
-                Komang Ayu harus menelan kekalahan karena cedera yang memengaruhi performanya tersebut. 
-                Ia kalah dari wakil tuan rumah sekaligus unggulan kedua, Wen Chi Hsu di babak empat besar melalui rubber game 20-22, 21-18, 9-14
-                <br><br>
-                Pada gim terakhir, Komang Ayu memutuskan untuk mundur dari pertandingan karena cedera itu sudah cukup mengganggu pergerakannya di lapangan
-                <br><br>
-                “Tadi sebetulnya secara permainan, performa saya di lapangan sudah berjalan cukup baik,” ungkap Komang Ayu, dikutip dari keterangan singkat PP PBSI.
-                <br><br>
-                “Namun, tadi memang ada kendala di lutut bagian belakang. Ini cukup mengganggu gerakan saya di lapangan,” ujarnya menambahkan.
-                <br><br>
-                Dengan ini, Komang Ayu bertekad untuk fokus dalam penyembuhan kondisi fisiknya, sebelum bersiap untuk mengikuti kompetisi-kompetisi lainnya yang ada di depan mata.
-                <br><br>
-                “Sebagai bagian evaluasinya, harus lebih dikuatkan lagi otot-otot kakinya. Semoga saja cederanya tidak parah,” ujar pebulu tangkis asal Bali tersebut.
-            </p>    
-            </section>
-    </main>
 
-    <!-- FOOTER -->
+    <section class="contact-form-section">
+        <div class="container">
+            <h2>Mau mengobrol langsung dengan tim Super Sport App?</h2>
+            <p>Terima kasih sudah mengunjungi website kami. Apakah Kamu memiliki pertanyaan seputar platform Super Sport App?</p>
+            <p>Sampaikan pertanyaan Anda disini. Tim kami akan menghubungi Anda secepatnya.</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Nama" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="phone" name="phone" placeholder="Nomor Hp" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="domicile" name="domicile" placeholder="Domisili" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subjek" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Pertanyaan" required></textarea>
+                </div>
+                <div class="form-group captcha">
+                    <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -117,8 +130,5 @@
             </div>
         </div>
     </footer>
-    <!-- FOOTER -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

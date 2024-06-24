@@ -99,7 +99,7 @@ header {
 }
 
 .main button:hover {
-    background-color: var(--main-color);
+    background-color: var(--second-color);
     color: var(--bg-color);
 }
 
@@ -133,7 +133,16 @@ header {
     color: var(--bg-color);
 }
 
+.log-out {
+    display: flex;
+    align-items: center;
+}
 
+.log-out i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
 
 .main a:hover {
     color: var(--bg-color);
@@ -170,8 +179,7 @@ header {
         right: -100%;
         width: 270px;
         height: 29vh;
-        background-color: var(--bg-color);
-        box-shadow: 0 0 5px #333;
+        background-color: var(--main-color);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -191,7 +199,7 @@ header {
     }
 
     .navbar a.active {
-        color: var (--bg-color);
+        color: var(--bg-color);
     }
 
     .navbar.open {
@@ -199,11 +207,60 @@ header {
     }
 }
 
+.more-info-section {
+    padding: 50px 0;
+    background-color: var(--bg-color);
+}
+
+.more-info-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.more-info-section .image-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.more-info-section .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.more-info-section .image-container p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.more-info-section .image-container .button {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.more-info-section .image-container .button:hover {
+    background-color: var(--second-color);
+    color: var(--bg-color);
+}
 
 /* Footer */
 .container {
     max-width: 1070px;
     margin: auto;
+    margin-top: 80px;
 }
 
 .row {

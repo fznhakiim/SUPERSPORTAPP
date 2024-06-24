@@ -24,8 +24,12 @@
                 <input type="password" name="registerPassword" id="registerPassword" required>
                 <label for="registerPassword">Password</label>
             </div>
+            <div class="input-group">
+                <input type="password" name="ConfirmPassword" id="ConfirmPassword" required>
+                <label for="ConfirmPassword">Confirm Password</label>
+            </div>
             <input class="btn" type="submit" value="Register">
-            <button type="button" class="btn-exit" onclick="location.href='Home.html'">Keluar</button>
+            <button type="button" class="btn-exit" onclick="location.href='Home.html'">Cancel</button>
         </form>
     </div>
     <script>
@@ -34,17 +38,24 @@
             const username = document.getElementById('registerUser').value;
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('ConfirmPassword').value;
 
-            if (validateEmail(email)) {
-                localStorage.setItem('username', username);
-                localStorage.setItem('email', email);
-                localStorage.setItem('password', password);
-                localStorage.setItem('isLoggedIn', 'true');
-                alert('Registration successful!');
-                window.location.href = 'Home.html';
-            } else {
+            if (!validateEmail(email)) {
                 alert('Invalid email format.');
+                return;
             }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Registration successful!');
+            window.location.href = 'Login.html';
         });
 
         function validateEmail(email) {

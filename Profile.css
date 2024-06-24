@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    font-weight: 500; 
     font-style: normal;
     text-decoration: none;
     list-style: none;
@@ -24,9 +25,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    margin: 0;
     padding-top: 80px; /* Adjust this value to match the height of the header */
+    padding: 0;
 }
 
 header {
@@ -82,13 +85,23 @@ header {
     align-items: center;
 }
 
-.main a {
-    margin-right: 25px;
+.main button {
+    margin-right: 15px;
     margin-left: 10px;
-    color: var(--text-color);
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: 500;
-    transition: all 0.50s ease;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main button:hover {
+    background-color: var(--second-color);
+    color: var(--bg-color);
 }
 
 .user {
@@ -100,6 +113,25 @@ header {
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
+}
+
+.main a.button, .exit-button {
+    margin-right: 15px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main a.button:hover, .exit-button:hover {
+    background-color: var(--second-color);
+    color: var(--bg-color);
 }
 
 .log-out {
@@ -148,8 +180,7 @@ header {
         right: -100%;
         width: 270px;
         height: 29vh;
-        background-color: var(--bg-color);
-        box-shadow: 0 0 5px #333;
+        background-color: var(--main-color);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -165,16 +196,102 @@ header {
     }
 
     .navbar a:hover {
-        color: var (--bg-color);
+        color: var(--bg-color);
     }
 
     .navbar a.active {
-        color: var (--bg-color);
+        color: var(--bg-color);
     }
 
     .navbar.open {
         right: 0%;
     }
+}
+.profile-container {
+    max-width: 2000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar ul li.active {
+    background-color: #f1f1f1;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group label span {
+    color: red;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-save {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c82333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-save:hover {
+    background-color: #a71d2a;
 }
 
 

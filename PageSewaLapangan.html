@@ -28,7 +28,7 @@
             <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
             <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
             <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
-            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+            <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -49,10 +49,7 @@
                     document.querySelector('#register-button').style.display = 'none';
                     document.querySelector('.user').style.display = 'block';
                     document.querySelector('.log-out').style.display = 'block';
-                } else {
-                    alert('Anda harus login terlebih dahulu untuk mengakses halaman ini.');
-                    window.location.href = 'Login.html';
-                }
+                } 
             }
             
         </script>
@@ -63,14 +60,12 @@
         <h2>BOOKING LAPANGAN TERBAIK</h2>
         <div class="search-container">
             <input type="text" id="gor-search" placeholder="Cari nama GOR">
-            <div class="dropdown">
-                <button class="dropdown-toggle" id="city-dropdown">Pilih Kota</button>
-                <div class="dropdown-content">
-                    <a href="#" data-value="Jakarta">Jakarta</a>
-                    <a href="#" data-value="Depok">Depok</a>
-                    <a href="#" data-value="Bekasi">Bekasi</a>
-                </div>
-            </div>
+            <select id="city-dropdown">
+                <option value="">Pilih Kota</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Depok">Depok</option>
+                <option value="Bekasi">Bekasi</option>
+            </select>
             <button id="search-btn">Cari Venue</button>
         </div>
         <div class="gor-container">
@@ -80,7 +75,7 @@
                 <div class="gor-info">
                     <h3>GOR KUKUSAN</h3>
                     <p>Rating: ⭐ 4.5</p>
-                    <p>Harga per jam: Rp 100.000</p>
+                    <p>Harga per jam: Rp 30.000</p>
                 </div>
             </div>
             <!-- Container 2 -->
@@ -89,7 +84,7 @@
                 <div class="gor-info">
                     <h3>GOR SIMA</h3>
                     <p>Rating: ⭐ 4.2</p>
-                    <p>Harga per jam: Rp 120.000</p>
+                    <p>Harga per jam: Rp 35.000</p>
                 </div>
             </div>
             <!-- Container 3 -->
@@ -98,7 +93,7 @@
                 <div class="gor-info">
                     <h3>GOR MUTIARA</h3>
                     <p>Rating: ⭐ 4.7</p>
-                    <p>Harga per jam: Rp 80.000</p>
+                    <p>Harga per jam: Rp 40.000</p>
                 </div>
             </div>
             <!-- Container 4 -->
@@ -107,7 +102,7 @@
                 <div class="gor-info">
                     <h3>GOR DADAP</h3>
                     <p>Rating: ⭐ 4.7</p>
-                    <p>Harga per jam: Rp 80.000</p>
+                    <p>Harga per jam: Rp 50.000</p>
                 </div>
             </div>
             <!-- Container 5 -->
@@ -116,7 +111,7 @@
                 <div class="gor-info">
                     <h3>GOR BIRU</h3>
                     <p>Rating: ⭐ 4.7</p>
-                    <p>Harga per jam: Rp 80.000</p>
+                    <p>Harga per jam: Rp 55.000</p>
                 </div>
             </div>
             <!-- Container 6 -->
@@ -125,7 +120,7 @@
                 <div class="gor-info">
                     <h3>GOR UNGU</h3>
                     <p>Rating: ⭐ 4.7</p>
-                    <p>Harga per jam: Rp 80.000</p>
+                    <p>Harga per jam: Rp 60.000</p>
                 </div>
             </div>
         </div>
@@ -137,15 +132,15 @@
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy & Policy</a></li>
-                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Privacy&Policy.html">Privacy & Policy</a></li>
+                    <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="ContactUs.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -162,34 +157,17 @@
 </footer>
 <!-- FOOTER -->
     <script>
-        // JavaScript untuk menangani dropdown
-        $(document).ready(function() {
-            $('#city-dropdown').on('click', function() {
-                $('.dropdown-content').toggleClass('show');
-            });
-
-            $('.dropdown-content a').on('click', function(e) {
-                e.preventDefault();
-                var selectedCity = $(this).data('value');
-                $('#city-dropdown').text(selectedCity);
-                $('.dropdown-content').removeClass('show');
-            });
-
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('.dropdown').length) {
-                    $('.dropdown-content').removeClass('show');
-                }
-            });
-
+       // JavaScript untuk menangani dropdown
+       $(document).ready(function() {
             $('#search-btn').on('click', function() {
                 var gorName = $('#gor-search').val().toLowerCase();
-                var selectedCity = $('#city-dropdown').text().trim().toLowerCase();
+                var selectedCity = $('#city-dropdown').val().toLowerCase();
                 
                 $('.gor-item').each(function() {
                     var gorItemName = $(this).data('gor').toLowerCase();
                     var gorItemCity = $(this).data('city').toLowerCase();
 
-                    if ((gorName === '' || gorItemName.includes(gorName)) && (selectedCity === 'pilih kota' || gorItemCity === selectedCity)) {
+                    if ((gorName === '' || gorItemName.includes(gorName)) && (selectedCity === '' || gorItemCity === selectedCity)) {
                         $(this).show();
                     } else {
                         $(this).hide();
@@ -202,19 +180,19 @@
             window.location.href = 'GorSima.html';
         }
         function navigateToGorKukusan() {
-            window.location.href = 'GorSima.html';
+            window.location.href = 'GorKukusan.html';
         }
         function navigateToGorMutiara() {
-            window.location.href = 'GorSima.html';
+            window.location.href = 'GorMutiara.html';
         }
         function navigateToGorDadap() {
-            window.location.href = 'GorSima.html';
+            window.location.href = 'GorDadap.html';
         }
         function navigateToGorBiru() {
-            window.location.href = 'GorSima.html';
+            window.location.href = 'GorBiru.html';
         }
         function navigateToGorUngu() {
-            window.location.href = 'GorSima.html';
+            window.location.href = 'GorUngu.html';
         }
     </script>
 </body>

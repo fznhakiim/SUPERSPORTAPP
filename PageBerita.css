@@ -46,7 +46,6 @@ header {
     transition: all .50s ease;
     box-shadow: 0 4px 2px -2px #00000033;
 }
-
 .logo {
     display: flex;
     align-items: center;
@@ -131,6 +130,21 @@ header {
 
 .main a.button:hover, .exit-button:hover {
     background-color: var(--second-color);
+    color: var(--bg-color);
+}
+
+.log-out {
+    display: flex;
+    align-items: center;
+}
+
+.log-out i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+.main a:hover {
     color: var(--bg-color);
 }
 

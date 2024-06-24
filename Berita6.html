@@ -22,14 +22,16 @@
         <ul class="navbar">
             <li><a href="Home.html">Home</a></li>
             <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
-            <li><a href="PageBerita.html" class="active">Blog</a></li>
+            <li><a href="PageBerita.html"  class="active" >Blog</a></li>
             <li><a href="About.html">About</a></li>
         </ul>
         <div class="main">
-            <a href="Profile.html" class="user"><i class="ri-user-fill"></i></a>
-            <a href="Login.html" class="log-out"><i class="ri-logout-box-r-line"></i></i></a>
-            <div class="bx bx-menu" id="menu-icon"></div>
+            <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
+            <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
+            <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
+            <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
         </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
 
         <script type="text/javascript">
             let menu = document.querySelector("#menu-icon");
@@ -38,6 +40,20 @@
             menu.onclick = () => {
                 menu.classList.toggle('bx-x');
                 navbar.classList.toggle('open');
+            }
+
+             // Check if user is logged in
+             const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                $('#login-button').hide();
+                $('#register-button').hide();
+                $('.user').show();
+                $('.log-out').show();
+            } else {
+                $('#login-button').show();
+                $('#register-button').show();
+                $('.user').hide();
+                $('.log-out').hide();
             }
         </script>
     </header>
@@ -95,7 +111,7 @@
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="ContactUs.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

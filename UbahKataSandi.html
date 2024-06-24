@@ -30,31 +30,32 @@
             <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
 
     <div class="profile-container">
         <div class="profile-header">
-            <h2>Profil</h2>
+            <h2>Ubah Kata Sandi</h2>
         </div>
         <div class="profile-content">
             <div class="sidebar">
                 <ul>
-                    <li class="active"><a href="Profile.html">Data Diri</a></li>
-                    <li><a href="UbahKataSandi.html">Ubah Kata Sandi</a></li>
+                    <li><a href="Profile.html">Data Diri</a></li>
+                    <li class="active"><a href="UbahKataSandi.html">Ubah Kata Sandi</a></li>
                 </ul>
             </div>
             <div class="main-content">
                 <form id="profile-form">
                     <div class="form-group">
-                        <label for="nama-lengkap">Nama Lengkap <span>*</span></label>
-                        <input type="text" id="nama-lengkap" name="nama-lengkap">
+                        <label for="sandi-lama">Masukkan Kata Sandi Lama<span>*</span></label>
+                        <input type="password" id="sandi-lama" name="sandi-lama" required>
                     </div>
                     <div class="form-group">
-                        <label for="username">Username <span>*</span></label>
-                        <input type="text" id="username" name="username">
+                        <label for="sandi-baru">Kata Sandi Baru<span>*</span></label>
+                        <input type="password" id="sandi-baru" name="sandi-baru" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <label for="konfirmasi-sandi-baru">Ketik Ulang Kata Sandi Baru<span>*</span></label>
+                        <input type="password" id="konfirmasi-sandi-baru" name="konfirmasi-sandi-baru" required>
                     </div>
                     <button type="submit" class="btn-save">Simpan Perubahan</button>
                 </form>
@@ -95,6 +96,31 @@
            document.addEventListener('DOMContentLoaded', function() {
             const username = localStorage.getItem('username');
             const email = localStorage.getItem('email');
+            const profileForm = document.getElementById('profile-form');
+
+            profileForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Ambil nilai input
+                const sandiLama = document.getElementById('sandi-lama').value;
+                const sandiBaru = document.getElementById('sandi-baru').value;
+                const konfirmasiSandiBaru = document.getElementById('konfirmasi-sandi-baru').value;
+
+                // Lakukan validasi (misalnya, cocokkan kata sandi baru dengan konfirmasi)
+                if (sandiBaru !== konfirmasiSandiBaru) {
+                    alert('Kata sandi baru dan konfirmasi tidak cocok.');
+                    return;
+                }
+
+                // Di sini Anda bisa memperbarui kata sandi di localStorage atau kirim ke server
+                // Contoh, perbarui di localStorage
+                localStorage.setItem('password', sandiBaru);
+
+                // Opsional, beri umpan balik kepada pengguna
+                alert('Kata sandi berhasil diubah.');
+                // Alihkan ke profil atau halaman lain
+                window.location.href = 'Profile.html';
+            });
 
             if (username && email) {
                 document.getElementById('nama-lengkap').value = username;

@@ -105,6 +105,7 @@ body {
    border-radius: 5px;
    cursor: pointer;
    color: #f7f7f7;
+   width: 100%;
 }
 
 .btn-exit {
@@ -121,6 +122,7 @@ body {
    border-radius: 5px;
    cursor: pointer;
    color: #f7f7f7;
+   width: 100%;
 }
 
 .btn:hover{

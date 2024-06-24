@@ -5,7 +5,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
     font-style: normal;
     text-decoration: none;
     list-style: none;
@@ -21,18 +20,16 @@
     --third-color: #F7B32D;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    font-weight: bolder;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
-    padding-top: 80px; /* Adjust this value to match the height of the header */
     padding: 0;
+    padding-top: 80px; /* Adjust this value to match the height of the header */
 }
-
 
 header {
     position: fixed; /* Changed from absolute to fixed */
@@ -53,6 +50,7 @@ header {
     display: flex;
     align-items: center;
 }
+
 .logo svg {
     color: var(--main-color);
     font-size: 28px;
@@ -81,19 +79,28 @@ header {
     color: var(--main-color);
 }
 
-
 .main {
     display: flex;
     align-items: center;
 }
 
-.main a {
-    margin-right: 25px;
+.main button {
+    margin-right: 15px;
     margin-left: 10px;
-    color: var(--text-color);
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: 500;
-    transition: all 0.50s ease;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main button:hover {
+    background-color: var(--second-color);
+    color: var(--bg-color);
 }
 
 .user {
@@ -102,6 +109,36 @@ header {
 }
 
 .user i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+.main a.button, .exit-button {
+    margin-right: 15px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main a.button:hover, .exit-button:hover {
+    background-color: var(--second-color);
+    color: var(--bg-color);
+}
+
+.log-out {
+    display: flex;
+    align-items: center;
+}
+
+.log-out i {
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
@@ -162,7 +199,7 @@ header {
     }
 
     .navbar a.active {
-        color: var (--bg-color);
+        color: var(--bg-color);
     }
 
     .navbar.open {

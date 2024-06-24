@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Book</title>
+    <link rel="stylesheet" href="OrderBook.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <h1>Detail Pesanan<span id="gorNameSpan"></span></h1>
+    <div id="orderDetails">
+        <!-- Informasi akan ditambahkan di sini menggunakan JavaScript -->
+    </div>
+
+    <div class="button-container">
+        <button id="btnKembali">Kembali</button>
+        <button id="btnLanjutkan">Lanjutkan Pembayaran</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>Apakah Anda yakin ingin melanjutkan pembayaran?</p>
+            <div class="modal-buttons">
+                <button id="btnModalLanjutkan">Lanjutkan</button>
+                <button id="btnModalKembali">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalTerimaKasih" class="modal">
+        <div class="modal-content">
+            <p>Terima kasih telah melanjutkan pembayaran!</p>
+            <div class="modal-buttons">
+                <button id="btnTerimaKasihOk">Ok</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="OrderBook.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="gorSima.js"></script>
+</body>
+</html>
