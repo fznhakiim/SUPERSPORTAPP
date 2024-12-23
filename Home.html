@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,3 +252,230 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Sport Application</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Home.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
+                <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
+            </svg>
+        </a>
+
+        <ul class="navbar">
+            <li><a href="Home.html" class="active">Home</a></li>
+            <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+        <div class="main">
+            <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
+            <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
+            <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
+            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    
+      <!-- Modal -->
+      <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Anda harus login terlebih dahulu untuk menyewa lapangan.</p>
+            <a href="Login.html" class="button">Login</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let menu = document.querySelector("#menu-icon");
+        let navbar = document.querySelector(".navbar");
+
+        menu.onclick = () => {
+            menu.classList.toggle('bx-x');
+            navbar.classList.toggle('open');
+        }
+
+        </script>
+    </header>
+    <!-- NAVBAR -->
+
+    <section class="hero" id="hero-section">
+        <h1>Super Sport Application</h1>
+        <p>Platform all-in-one untuk sewa lapangan, informasi mengenai olahraga badminton. Olahraga makin mudah dan menyenangkan!</p>
+    </section>
+
+    <section class="content">
+        <div class="card">
+            <div class="card-content">
+                <h2>Sewa lapangan dengan mudah dan cepat.</h2>
+                <p>Ada rencana berolahraga minggu ini tapi belum tahu mau main di mana? Atau tidak sempat jauh-jauh datang ke venue hanya untuk booking lapangan?</p>
+                <a href="PageSewaLapangan.html">Lihat Selengkapnya →</a>
+            </div>
+            <div class="card-background">
+                <button class="arrow-left" data-target="0">&#9664;</button>
+                <div class="background-container" id="background-0"></div>
+                <button class="arrow-right" data-target="0">&#9654;</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>Berita seputar olahraga badminton</h2>
+                <p>Informasi mengenai Dunia Badminton, jadwal kompetisi resmi BWF, hasil pertandingan, dan Press Match Conference</p>
+                <a href="PageBerita.html">Lihat Selengkapnya →</a>
+            </div>
+            <div class="card-background">
+                <button class="arrow-left" data-target="1">&#9664;</button>
+                <div class="background-container" id="background-1"></div>
+                <button class="arrow-right" data-target="1">&#9654;</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>Mengapa Super Sport App?</h2>
+                <p>Bersama Super Sport App, Anda dapat menemukan teman bermain olahraga badminton dan komunitas amatir dalam satu kolaborasi.</p>
+                
+                <ul class="features-list">
+                    <li><strong style="font-weight: bold;">Introduce</strong><br>Meningkatkan brand awareness kepada masyarakat yang gemar berolahraga.</li>
+                    <br>
+                    <li><strong style="font-weight: bold;">Interact</strong><br>Melibatkan komunitas amatir saat bermain bersama menggunakan Super Sport App.</li>
+                    <br>
+                    <li><strong style="font-weight: bold;">Amplify</strong><br>Memperluas jangkauan melalui activation online dan offline yang terintegrasi.</li>
+                    <br>
+                </ul>
+
+                <a href="pageLain.html" class="read-more">Lihat Selengkapnya →</a>
+                
+            </div>
+            <div class="card-background">
+                <button class="arrow-left" data-target="2">&#9664;</button>
+                <div class="background-container" id="background-2"></div>
+                <button class="arrow-right" data-target="2">&#9654;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Privacy&Policy.html">Privacy & Policy</a></li>
+                        <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="ContactUs.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>How to Reach Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-map-pin-2-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+    <script>
+        $(document).ready(function() {
+            var images = [
+                ['url(GOR1.jpg)', 'url(GOR2.jpg)', 'url(GOR3.jpg)'],
+                ['url(BERITA1.jpeg)', 'url(BERITA2.jpg)', 'url(BERITA3.jpg)'],
+                ['url(MABAR1.jpg)', 'url(MABAR2.png)', 'url(MABAR3jpg.jpg)'] // Add your images here
+        ];
+            var currentIndices = [0, 0, 0];
+
+            function changeBackground(cardIndex) {
+                $('#background-' + cardIndex).css('background-image', images[cardIndex][currentIndices[cardIndex]]);
+            }
+
+            $('.arrow-left').click(function() {
+                var target = $(this).data('target');
+                currentIndices[target] = (currentIndices[target] - 1 + images[target].length) % images[target].length;
+                changeBackground(target);
+            });
+
+            $('.arrow-right').click(function() {
+                var target = $(this).data('target');
+                currentIndices[target] = (currentIndices[target] + 1) % images[target].length;
+                changeBackground(target);
+            });
+
+            // Initial background setup
+            changeBackground(0);
+            changeBackground(1);
+            changeBackground(2); // Initialize the new card background
+
+
+            var heroImages = [
+                'url(FAJAR.webp)',
+                'url(RIAN.webp)',
+                'url(Gideon.webp)'
+            ];
+            var currentHeroIndex = 0;
+            function changeHeroBackground() {
+                $('#hero-section').css('background-image', heroImages[currentHeroIndex]);
+                currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+            }
+            changeHeroBackground();
+            setInterval(changeHeroBackground, 60000); // 60000 ms = 1 menit
+      
+             // Check if user is logged in
+             const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                $('#login-button').hide();
+                $('#register-button').hide();
+                $('.user').show();
+                $('.log-out').show();
+            } else {
+                $('#login-button').show();
+                $('#register-button').show();
+                $('.user').hide();
+                $('.log-out').hide();
+            }
+
+              // Handle "Sewa Lapangan" click
+              $('.requires-login').click(function(event) {
+                if (!isLoggedIn) {
+                    event.preventDefault();
+                    $('#login-modal').show();
+                }
+            });
+
+            // Close modal
+            $('.modal .close').click(function() {
+                $('#login-modal').hide();
+            });
+
+            $(window).click(function(event) {
+                if ($(event.target).is('#login-modal')) {
+                    $('#login-modal').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 8308a913f00752bf3b264b52266789f73b13686b

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,3 +199,226 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Sport Application - Booking Lapangan Online</title>
+    <link rel="stylesheet" href="SewaLapangan.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
+                <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
+            </svg>
+        </a>
+
+        <ul class="navbar">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="PageSewaLapangan.html" class="active">Sewa Lapangan</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+        <div class="main">
+            <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
+            <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
+            <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
+            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <script type="text/javascript">
+            let menu = document.querySelector("#menu-icon");
+            let navbar = document.querySelector(".navbar");
+    
+            menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+
+            // Check if user is logged in
+            window.onload = function() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                if (isLoggedIn === 'true') {
+                    document.querySelector('#login-button').style.display = 'none';
+                    document.querySelector('#register-button').style.display = 'none';
+                    document.querySelector('.user').style.display = 'block';
+                    document.querySelector('.log-out').style.display = 'block';
+                } else {
+                    alert('Anda harus login terlebih dahulu untuk mengakses halaman ini.');
+                    window.location.href = 'Login.html';
+                }
+            }
+            
+        </script>
+    </header>
+    <!-- NAVBAR -->
+
+    <section class="booking">
+        <h2>BOOKING LAPANGAN TERBAIK</h2>
+        <div class="search-container">
+            <input type="text" id="gor-search" placeholder="Cari nama GOR">
+            <div class="dropdown">
+                <button class="dropdown-toggle" id="city-dropdown">Pilih Kota</button>
+                <div class="dropdown-content">
+                    <a href="#" data-value="Jakarta">Jakarta</a>
+                    <a href="#" data-value="Depok">Depok</a>
+                    <a href="#" data-value="Bekasi">Bekasi</a>
+                </div>
+            </div>
+            <button id="search-btn">Cari Venue</button>
+        </div>
+        <div class="gor-container">
+            <!-- Container 1 -->
+            <div class="gor-item" data-gor="GOR KUKUSAN" data-city="Depok" onclick="navigateToGorKukusan()">
+                <img src="GOR1.jpg" alt="GOR 1">
+                <div class="gor-info">
+                    <h3>GOR KUKUSAN</h3>
+                    <p>Rating: ⭐ 4.5</p>
+                    <p>Harga per jam: Rp 100.000</p>
+                </div>
+            </div>
+            <!-- Container 2 -->
+            <div class="gor-item" data-gor="GOR SIMA" data-city="Jakarta" onclick="navigateToGorSima()">
+                <img src="GOR2.jpg" alt="GOR 2">
+                <div class="gor-info">
+                    <h3>GOR SIMA</h3>
+                    <p>Rating: ⭐ 4.2</p>
+                    <p>Harga per jam: Rp 120.000</p>
+                </div>
+            </div>
+            <!-- Container 3 -->
+            <div class="gor-item" data-gor="GOR MUTIARA" data-city="Bekasi" onclick="navigateToGorMutiara()">
+                <img src="GOR3.jpg" alt="GOR 3">
+                <div class="gor-info">
+                    <h3>GOR MUTIARA</h3>
+                    <p>Rating: ⭐ 4.7</p>
+                    <p>Harga per jam: Rp 80.000</p>
+                </div>
+            </div>
+            <!-- Container 4 -->
+            <div class="gor-item" data-gor="GOR DADAP" data-city="Depok" onclick="navigateToGorDadap()">
+                <img src="GOR4.jpg" alt="GOR 3">
+                <div class="gor-info">
+                    <h3>GOR DADAP</h3>
+                    <p>Rating: ⭐ 4.7</p>
+                    <p>Harga per jam: Rp 80.000</p>
+                </div>
+            </div>
+            <!-- Container 5 -->
+            <div class="gor-item" data-gor="GOR BIRU" data-city="Bekasi" onclick="navigateToGorBiru()">
+                <img src="GOR5.jpg" alt="GOR 3">
+                <div class="gor-info">
+                    <h3>GOR BIRU</h3>
+                    <p>Rating: ⭐ 4.7</p>
+                    <p>Harga per jam: Rp 80.000</p>
+                </div>
+            </div>
+            <!-- Container 6 -->
+            <div class="gor-item" data-gor="GOR UNGU" data-city="Jakarta" onclick="navigateToGorUngu()">
+                <img src="GOR6.jpg" alt="GOR 3">
+                <div class="gor-info">
+                    <h3>GOR UNGU</h3>
+                    <p>Rating: ⭐ 4.7</p>
+                    <p>Harga per jam: Rp 80.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- FOOTER -->
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy & Policy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="ContactUs.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>How to Reach Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-map-pin-2-fill"></i></a>
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- FOOTER -->
+    <script>
+        // JavaScript untuk menangani dropdown
+        $(document).ready(function() {
+            $('#city-dropdown').on('click', function() {
+                $('.dropdown-content').toggleClass('show');
+            });
+
+            $('.dropdown-content a').on('click', function(e) {
+                e.preventDefault();
+                var selectedCity = $(this).data('value');
+                $('#city-dropdown').text(selectedCity);
+                $('.dropdown-content').removeClass('show');
+            });
+
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.dropdown').length) {
+                    $('.dropdown-content').removeClass('show');
+                }
+            });
+
+            $('#search-btn').on('click', function() {
+                var gorName = $('#gor-search').val().toLowerCase();
+                var selectedCity = $('#city-dropdown').text().trim().toLowerCase();
+                
+                $('.gor-item').each(function() {
+                    var gorItemName = $(this).data('gor').toLowerCase();
+                    var gorItemCity = $(this).data('city').toLowerCase();
+
+                    if ((gorName === '' || gorItemName.includes(gorName)) && (selectedCity === 'pilih kota' || gorItemCity === selectedCity)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+
+        function navigateToGorSima() {
+            window.location.href = 'GorSima.html';
+        }
+        function navigateToGorKukusan() {
+            window.location.href = 'GorSima.html';
+        }
+        function navigateToGorMutiara() {
+            window.location.href = 'GorSima.html';
+        }
+        function navigateToGorDadap() {
+            window.location.href = 'GorSima.html';
+        }
+        function navigateToGorBiru() {
+            window.location.href = 'GorSima.html';
+        }
+        function navigateToGorUngu() {
+            window.location.href = 'GorSima.html';
+        }
+    </script>
+</body>
+</html>
+>>>>>>> 8308a913f00752bf3b264b52266789f73b13686b

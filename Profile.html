@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,3 +209,155 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
+                <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
+                </svg>
+        </a>
+       
+        <ul class="navbar">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+        <div class="main">
+           
+            <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
+            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2>Profil</h2>
+        </div>
+        <div class="profile-content">
+            <div class="sidebar">
+                <ul>
+                    <li class="active"><a href="Profile.html">Data Diri</a></li>
+                    <li><a href="UbahKataSandi.html">Ubah Kata Sandi</a></li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="nama-lengkap">Nama Lengkap <span>*</span></label>
+                        <input type="text" id="nama-lengkap" name="nama-lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username <span>*</span></label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <button type="submit" class="btn-save">Simpan Perubahan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Privacy&Policy.html">Privacy & Policy</a></li>
+                        <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="ContactUs.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>How to Reach Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-map-pin-2-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script type="text/javascript">
+           document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            const email = localStorage.getItem('email');
+
+            if (username && email) {
+                document.getElementById('nama-lengkap').value = username;
+                document.getElementById('username').value = username;
+                document.getElementById('email').value = email;
+            }
+        let menu = document.querySelector("#menu-icon");
+        let navbar = document.querySelector(".navbar");
+
+        menu.onclick = () => {
+            menu.classList.toggle('bx-x');
+            navbar.classList.toggle('open');
+        }
+       
+       // Check if user is logged in
+       const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                $('#login-button').hide();
+                $('#register-button').hide();
+                $('.user').show();
+                $('.log-out').show();
+            } else {
+                $('#login-button').show();
+                $('#register-button').show();
+                $('.user').hide();
+                $('.log-out').hide();
+            }
+
+              // Handle "Sewa Lapangan" click
+              document.querySelectorAll('.requires-login').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    if (!isLoggedIn) {
+                        event.preventDefault();
+                        document.getElementById('login-modal').style.display = 'block';
+                    }
+                });
+            });
+        
+            document.querySelectorAll('.modal .close').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.getElementById('login-modal').style.display = 'none';
+                });
+            });
+        
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('login-modal')) {
+                    document.getElementById('login-modal').style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 8308a913f00752bf3b264b52266789f73b13686b

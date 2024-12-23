@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,3 +47,51 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <form id="login-form" class="form">
+            <img src="Media/pict.svg" alt="">
+            <h2>Login</h2>
+            <div class="input-group">
+                <input type="text" name="loginUser" id="loginUser" required>
+                <label for="loginUser">User Name</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="loginPassword" id="loginPassword" required>
+                <label for="loginPassword">Password</label>
+            </div>
+            <input class="btn" type="submit" value="Log In">
+            <button type="button" class="btn-exit" onclick="location.href='Home.html'">Keluar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUser').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (username === storedUsername && password === storedPassword) {
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Login successful!');
+                window.location.href = 'Home.html';
+            } else {
+                alert('Incorrect username or password.');
+            }
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 8308a913f00752bf3b264b52266789f73b13686b

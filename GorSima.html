@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1179,4 +1180,256 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="SewaLogic.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="GorSima.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo">
+            <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
+                <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
+                </svg>
+        </a>
+
+      
+        <ul class="navbar">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="PageSewaLapangan.html" class="active" >Sewa Lapangan</a></li>
+            <li><a href="PageBerita.html">Blog</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+        <div class="main">
+            <a href="Profile.html" class="user"><i class="ri-user-fill"></i></a>
+            <a href="Login.html" class="log-out"><i class="ri-logout-box-r-line"></i></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+
+        <script type="text/javascript">
+            let menu = document.querySelector("#menu-icon");
+            let navbar = document.querySelector(".navbar");
+    
+            menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+        </script>
+    </header>
+    <!-- NAVBAR -->
+    
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="main-content">
+            <div class="court-pic">
+                <img src="court.jpeg" alt="">
+            </div>
+
+            <div class="h-line"></div>
+
+            <article>
+                <div class="deskripsi">
+                    <span style="font-weight: 800; color: var(--main-color);"><i class="ri-arrow-right-s-fill" style="color: var(--text-color);"></i>Deskripsi</span>
+                </div>
+                <p>
+                    Mohon di perhatikan beberapa point penting untuk pemain di GOR Sigma. <br>
+                    1. WAJIB Lepas sepatu/sandal dari luar untuk menjaga kebersihan lapangan. Sudah disediakan Sendal ganti. <br>
+                    2. WAJIB memakai Sepatu Badminton/Indoor. <br>
+                    3. DILARANG Menggunakan Sepatu running / Warna Hitam dilapangan. <br>
+                    4. Maksimal 10 Orang/Lapangan. Apabila melebihi 10 Orang/Lapangan, Bookingan akan dibatalkan. <br>
+                </p>
+            </article>
+
+            <div class="h-line"></div>
+
+            <div class="pilih-lapangan">
+                <span style="font-weight: 800; color: var(--main-color);"><i class="ri-arrow-right-s-fill" style="color: var(--text-color);"></i>Pilih Lapangan</span>
+            </div>
+
+            <!-- PENDING -->
+            <div class="calendar-container">
+                <div class="timings">
+                    <div class="dates">
+                        <input type="radio" name="date" id="d1" >
+                        <label for="d1" class="dates-item">
+                            <div class="day">Sun</div>
+                            <div class="date">23 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d2" >
+                        <label for="d2" class="dates-item">
+                            <div class="day">Mon</div>
+                            <div class="date">24 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d3" checked>
+                        <label for="d3" class="dates-item">
+                            <div class="day">Tue</div>
+                            <div class="date">25 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d4" >
+                        <label for="d4" class="dates-item">
+                            <div class="day">Wed</div>
+                            <div class="date">26 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d5" >
+                        <label for="d5" class="dates-item">
+                            <div class="day">Thu</div>
+                            <div class="date">27 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d6" >
+                        <label for="d6" class="dates-item">
+                            <div class="day">Fri</div>
+                            <div class="date">28 June</div>
+                        </label>
+                        <input type="radio" name="date" id="d7" >
+                        <label for="d7" class="dates-item">
+                            <div class="day">Sat</div>
+                            <div class="date">29 June</div>
+                        </label>
+                        
+                        <div class="v-line"></div>
+
+                        <div class="more-date">
+                            <i class="ri-calendar-line"></i>
+                            <input type="button" name="more-date" id="more-date">
+                            <label for="">More Date</label>
+                        </div>
+                    </div>
+                    
+                </div>         
+            </div>
+            <!-- PENDING -->
+
+            <div class="h-line"></div>
+
+            <div class="item-tambahan">
+                <span style="font-weight: 800; color: var(--main-color);"><i class="ri-arrow-right-s-fill" style="color: var(--text-color);"></i>Item Tambahan</span>
+            </div>
+            <p style="font-size: 15px; font-weight: 400;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+            </p>
+            <br>
+            <p style="font-size: 15px; font-weight: 400;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+            </p>
+            <br>
+            <p style="font-size: 15px; font-weight: 400;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed, laboriosam quae sunt doloribus dolor saepe corrupti officia ipsum earum similique quis ut, molestias dolore cupiditate facilis consequuntur voluptates nobis.
+            </p>
+        </div>
+
+        <div class="side-bar">
+            <div class="side-content">
+                <div class="gor-desc">
+                    <p id="gor-name">Gor Sima</p>
+                    <span id="rating"><i class="ri-star-fill"></i> 4.8</span>
+                </div>
+    
+                <div class="h-line-side"></div>
+    
+                <div class="locfaci">
+                    <p class="judul">Location</p>
+                    <a href="https://maps.app.goo.gl/tGBTEHKK5jWj3C9XA" target="_blank">
+                        <div class="maps">
+                            <div class="text">
+                                <p>Jalan Kukusan Teknik Jaya Raya RT.15 RW.11</p>
+                            </div>
+                            <div class="pic">
+                                <i class="ri-map-pin-2-fill"></i>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <p class="judul">Facilities</p>
+                    <div class="facilities">
+                        <div class="items">
+                            <div class="facil-icon"><i class="ri-car-fill"></i></div>
+                            <div class="facil-text">Parkir <br>Mobil</div>
+                        </div>
+                        <div class="items">
+                            <div class="facil-icon"><i class="ri-motorbike-fill"></i></i></div>
+                            <div class="facil-text">Parkir Motor</div>
+                        </div>
+                        <div class="items">
+                            <div class="facil-icon"><i class="ri-cup-fill"></i></i></div>
+                            <div class="facil-text">Jual Minuman</div>
+                        </div>
+                        <div class="items">
+                            <div class="facil-icon"><i class="ri-bowl-fill"></i></i></div>
+                            <div class="facil-text">Jual Makanan</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="h-line-side"></div>
+    
+                <div class="order">
+                    <div class="judul">Mulai Dari</div>
+                    <div class="subjudul">Rp 35.000/sesi</div>
+                    <div class="buttonPesan">
+                        <div class="keterangan">Pesan Sekarang</div>
+                    </div>
+                    <div class="jumlahItem">
+                        <div class="keterangan">
+                            0 Item Dipilih
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy & Policy</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>How to Reach Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-map-pin-2-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+
+    <script type="text/javascript" src="../gorSima.js"></script>
+</body>
+>>>>>>> 8308a913f00752bf3b264b52266789f73b13686b
 </html>
