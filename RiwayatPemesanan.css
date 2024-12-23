@@ -1,3 +1,5 @@
+/* RiwayatPemesanan.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 * {
@@ -25,15 +27,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     font-weight: bolder;
-    margin: 0;
-    padding-top: 80px; /* Adjust this value to match the height of the header */
-    padding: 0;
 }
 
 header {
-    position: fixed; /* Changed from absolute to fixed */
+    position: fixed;
     width: 100%;
     top: 0;
     right: 0;
@@ -207,13 +209,12 @@ header {
         right: 0%;
     }
 }
+
 .profile-container {
-    max-width: 100%;
+    max-width: 2000px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 90px;
-    margin-top: 86px;
 }
 
 .profile-header {
@@ -224,21 +225,14 @@ header {
 .profile-header h2 {
     margin: 0;
     font-size: 24px;
-    font-weight: 700;
-    color: var(--main-color);
 }
 
 .profile-content {
     display: flex;
 }
 
-.content{
-    flex: 1; /* Allows the content to grow and push the footer to the bottom */
-    width: 100%;
-}
-
 .sidebar {
-    width: 30%;
+    width: 200px;
     border-right: 1px solid #ddd;
 }
 
@@ -302,8 +296,6 @@ header {
 .btn-save:hover {
     background-color: #a71d2a;
 }
-
-
 
 
 /* Footer */
@@ -398,7 +390,8 @@ header {
         width: 100%;
     }
 }
-/* Footer */
+
+/* Riwayat Pemesanan */
 #bookingHistory {
     width: 80%;
     max-width: 800px;
@@ -423,23 +416,14 @@ header {
 .booking p {
     margin: 5px 0;
     color: var(--darkerW-color);
-    font-size: 13px;
-    font-weight: 500;
-}
-.booking h1 {
-    margin: 5px 0;
-    color: var(--main-color);
-    font-size: 20px;
-    font-weight: 700;
-}
-.booking h2 {
-    margin: 5px 0;
-    color: var(--text-color);
-    font-size: 15px;
-    font-weight: 600;
 }
 
 .booking p span {
     font-weight: bold;
 }
 
+h1 {
+    color: var(--text-color);
+    margin-top: 80px; /* Adjust to ensure the header does not overlap */
+    text-align: center;
+}

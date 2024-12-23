@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; 
+    font-style: normal;
 }
 
 :root{
@@ -10,6 +15,13 @@
     --color-darkblue:#796ec8;
     --color-darkblue-alpha:rgba(13, 138, 187, 0.8);
     --color-tomato: #e03e3e;
+    --bg-color: #F8F9FC;
+    --darkW-color: #c0c0c0;
+    --darkerW-color: #757575;
+    --main-color: #C00000;
+    --text-color: #212121;
+    --second-color: #DE3C3C;
+    --third-color: #F7B32D;
 }
 
 body {
@@ -23,12 +35,16 @@ body {
    justify-content: center;
    align-items: center;
 }
+h2{
+   font-size: 25px;
+   font-weight: 700;
+}
 
 .form {
    position: relative;
    width: 100%;
    max-width: 500px;
-   padding: 80px 40px 40px;
+   padding: 40px;
    background: #f7f7f7;
    border-radius: 10px;
    color: var(--color-black);
@@ -36,7 +52,7 @@ body {
    text-decoration: none;
 }
 .form::before {
-   content:'';
+   /* content:''; */
    position: absolute;
    top: 0;
    left: 0;
@@ -59,7 +75,7 @@ body {
    text-align: center;
    letter-spacing: 1px;
    margin-bottom: 2rem;
-   color: var(--color-tomato);
+   color: var(--text-color);
 }
 .form .input-group {
    position: relative;
@@ -76,6 +92,13 @@ body {
    background-color: transparent;
    color: inherit;
 }
+.form .input-group input#loginPassword{
+   margin-bottom: 10px;
+}
+
+input#ConfirmPassword{
+   margin-bottom: 10px;
+}
 .form .input-group label {
    position: absolute;
    top: 0;
@@ -88,8 +111,17 @@ body {
 .form .input-group input:focus + label,
 .form .input-group input:valid + label {
    transform: translateY(-18px);
-   color: var(--color-tomato);
+   color: var(--main-color);
    font-size: .8rem;
+}
+span#daftar a{
+   color: var(--main-color);
+   text-decoration: none;
+   cursor: pointer;
+}
+span#daftar a:hover{
+   color: var(--third-color);
+   transition: all 0.1s ease;
 }
 .btn {
    display: block;
@@ -97,7 +129,7 @@ body {
    margin-bottom: 20px;
    border: none;
    outline: none;
-   background: var(--color-tomato);
+   background: var(--main-color);
    font-size: 1rem;
    text-transform: uppercase;
    letter-spacing: 1px;
@@ -106,6 +138,7 @@ body {
    cursor: pointer;
    color: #f7f7f7;
    width: 100%;
+   margin-top: 30px;
 }
 
 .btn-exit {
@@ -114,7 +147,7 @@ body {
    margin-bottom: 20px;
    border: none;
    outline: none;
-   background: var(--color-tomato);
+   background: var(--main-color);
    font-size: 1rem;
    text-transform: uppercase;
    letter-spacing: 1px;
@@ -126,6 +159,11 @@ body {
 }
 
 .btn:hover{
+    transform: scale(1.025);
+    transition: all .2s ease-in-out;
+}
+
+button:hover{
     transform: scale(1.025);
     transition: all .2s ease-in-out;
 }

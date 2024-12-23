@@ -235,10 +235,19 @@ main {
     flex-direction: column;
 }
 
+.news-card a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+.news-card a:hover{
+    color: var(--main-color);
+}
+
 .news-card:hover {
     /* Pengaturan saat dihover */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     transform: scale(1.02);
+    transition: all 0.2s ease;
 }
 
 .image-container img {
@@ -265,7 +274,7 @@ main {
     /* Pengaturan untuk judul berita */
     margin-top: 0;
     margin-bottom: auto; /* Pushes the paragraphs to the bottom */
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 

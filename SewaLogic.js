@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // Set default value for date input to today's date
     var today = new Date();
@@ -8,6 +7,9 @@ $(document).ready(function() {
   
     var formattedDate = yyyy + '-' + mm + '-' + dd;
     $('#date-book').val(formattedDate);
+
+    // Set minimum date to today
+    $('#date-book').attr('min', formattedDate);
   
     // Toggle dropdown
     function toggleDropdown(button) {
@@ -102,7 +104,9 @@ $(document).ready(function() {
 
   $('.buttonPesan').on('click', function() {
     var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (!isLoggedIn) {
+    var currentUser = localStorage.getItem('currentUser'); // Get the current user
+
+    if (!isLoggedIn || !currentUser) {
         // Show login prompt
         alert('Anda harus login terlebih dahulu untuk melakukan pemesanan.');
         // Redirect to Login.html
@@ -147,14 +151,91 @@ $(document).ready(function() {
         alert('Anda harus memilih minimal satu lapangan sebelum melakukan pemesanan.');
         return; // Berhenti eksekusi fungsi jika tidak ada lapangan yang dipilih
     }
+
+    // Save booking history
+    var bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+    selectedItems.forEach(item => {
+        bookings.push({
+            user: currentUser,
+            gor: gorName,
+            lapangan: item.checkbox,
+            tanggal: item.tanggal,
+            price: item.price
+        });
+    });
+    localStorage.setItem('bookings', JSON.stringify(bookings));
   
     // Construct the URL for orderBook.html with selectedItems as a query parameter
-    var baseUrl = '../orderBook.html';
+    var baseUrl = 'OrderBook.html';
     var queryParams = encodeURIComponent(JSON.stringify(selectedItems));
     var url = baseUrl + '?selectedItems=' + queryParams + '&gorName=' + encodeURIComponent(gorName);
   
     // Buka orderBook.html di jendela/tab baru
     window.location.href = url;
   });
-});
-  
+
+  // Logika untuk menyimpan pengguna yang sedang login
+function loginUser(username) {
+    localStorage.setItem('currentUser', username);
+}
+
+// Contoh pengguna login (simulasikan login)
+loginUser('user1');
+
+// Logika untuk menambahkan pemesanan baru dengan informasi pengguna
+function addBooking(gor, lapangan, tanggal, price) {
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) {
+        alert('Anda harus login terlebih dahulu.');
+        return;
+    }
+
+    const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+    bookings.push({
+        user: currentUser,
+        gor: gor,
+        lapangan: lapangan,
+        tanggal: tanggal,
+        price: price
+    });
+    localStorage.setItem('bookings', JSON.stringify(bookings));
+}
+
+// Fungsi untuk menampilkan riwayat pemesanan
+function displayBookingHistory() {
+    const bookingHistoryDiv = $('#bookingHistory');
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) {
+        bookingHistoryDiv.html('<p>Anda harus login untuk melihat riwayat pemesanan.</p>');
+        return;
+    }
+
+    const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+    const userBookings = bookings.filter(booking => booking.user === currentUser);
+
+    if (userBookings.length === 0) {
+        bookingHistoryDiv.html('<p>Tidak ada riwayat pemesanan.</p>');
+    } else {
+        userBookings.forEach(booking => {
+            const bookingDiv = $('<div>').addClass('booking');
+
+            const gorP = $('<h1>').text(`GOR: ${booking.gor}`);
+            bookingDiv.append(gorP);
+
+            const lapanganP = $('<h2>').text(`Lapangan: ${booking.lapangan}`);
+            bookingDiv.append(lapanganP);
+
+            const tanggalP = $('<h3>').text(`Tanggal: ${booking.tanggal}`);
+            bookingDiv.append(tanggalP);
+
+            const priceP = $('<p>').text(`Harga: ${booking.price}`);
+            bookingDiv.append(priceP);
+
+            bookingHistoryDiv.append(bookingDiv);
+        });
+    }
+}
+
+// Panggil fungsi untuk menampilkan riwayat pemesanan
+displayBookingHistory();
+ });

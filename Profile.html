@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="Vector.png">
     <title>User Profile</title>
     <link rel="stylesheet" href="Profile.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
@@ -10,13 +11,13 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">
+        <a href="Home.html" class="logo">
             <svg width="81" height="81" viewBox="0 0 81 81" xmlns="http://www.w3.org/2000/svg">
                 <path fill="currentColor" d="M40.5 0C18.127 0 0 18.127 0 40.5C0 62.873 18.127 81 40.5 81C62.873 81 81 62.873 81 40.5C81 18.127 62.873 0 40.5 0ZM48.3714 53.2542H18.8129L32.645 27.7621H62.2034L48.3714 53.2542Z" fill="white"/>
                 <path fill="currentColor" d="M14.2771 51.583L60.3952 25.3667L64.2422 32.1341L18.1241 58.3504L14.2771 51.583Z" fill="white"/>
                 </svg>
         </a>
-       
+    
         <ul class="navbar">
             <li><a href="Home.html">Home</a></li>
             <li><a href="PageSewaLapangan.html">Sewa Lapangan</a></li>
@@ -24,43 +25,44 @@
             <li><a href="About.html">About</a></li>
         </ul>
         <div class="main">
-            <button id="login-button" onclick="location.href='Login.html'">Masuk</button>
-            <button id="register-button" onclick="location.href='Register.html'">Daftar</button>
+        
             <a href="Profile.html" class="user" style="display: none;"><i class="ri-user-fill"></i></a>
-            <button href="Logout.html" style="display: none;" button id="logout-button"onclick="location.href='Login.html'" class="log-out">Logout</button>
+            <a href="Logout.html" class="log-out" style="display: none;"><i class="ri-logout-box-r-line"></i></a>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
 
-    <div class="profile-container">
-        <div class="profile-header">
-            <h2>Profil</h2>
-        </div>
-        <div class="profile-content">
-            <div class="sidebar">
-                <ul>
-                    <li class="active"><a href="Profile.html">Data Diri</a></li>
-                    <li><a href="UbahKataSandi.html">Ubah Kata Sandi</a></li>
-                </ul>
+
+    <div class="content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h2>Profil</h2>
             </div>
-            <div class="main-content">
-                <form id="profile-form">
-                    <div class="form-group">
-                        <label for="nama-lengkap">Nama Lengkap <span>*</span></label>
-                        <input type="text" id="nama-lengkap" name="nama-lengkap">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username <span>*</span></label>
-                        <input type="text" id="username" name="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    <button type="submit" class="btn-save">Simpan Perubahan</button>
-                </form>
+            <div class="profile-content">
+                <div class="sidebar">
+                    <ul>
+                        <li class="active"><a href="Profile.html">Data Diri</a></li>
+                        <li><a href="UbahKataSandi.html">Ubah Kata Sandi</a></li>
+                        <li><a href="RiwayatPemesanan.html">Riwayat Pemesanan</a></li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="username">Username <span>*</span></label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <button type="submit" class="btn-save">Simpan Perubahan</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -81,10 +83,10 @@
                 <div class="footer-col">
                     <h4>How to Reach Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="ri-instagram-line"></i></a>
-                        <a href="#"><i class="ri-map-pin-2-fill"></i></a>
-                        <a href="#"><i class="ri-twitter-fill"></i></a>
-                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                        <a href="https://www.instagram.com/ayo.indonesia/" target="_blank"><i class="ri-instagram-line"></i></a>
+                        <a href="https://maps.app.goo.gl/vyFhwrUeHUohAFvD8" target="_blank"><i class="ri-map-pin-2-fill"></i></a>
+                        <a href="https://x.com/ayosportapp" target="_blank"><i class="ri-twitter-fill"></i></a>
+                        <a href="https://web.facebook.com/ayo.indonesia.sports?_rdc=1&_rdr" target="_blank"><i class="ri-facebook-fill"></i></a>
                     </div>
                 </div>
             </div>
@@ -92,39 +94,58 @@
     </footer>
     
     <script type="text/javascript">
-           document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameField = document.getElementById('username');
+            const emailField = document.getElementById('email');
+            const profileForm = document.getElementById('profile-form');
+
             const username = localStorage.getItem('username');
             const email = localStorage.getItem('email');
 
-            if (username && email) {
-                document.getElementById('nama-lengkap').value = username;
-                document.getElementById('username').value = username;
-                document.getElementById('email').value = email;
+            if (username) {
+                usernameField.value = username;
             }
-        let menu = document.querySelector("#menu-icon");
-        let navbar = document.querySelector(".navbar");
-
-        menu.onclick = () => {
-            menu.classList.toggle('bx-x');
-            navbar.classList.toggle('open');
-        }
-       
-       // Check if user is logged in
-       const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn === 'true') {
-                $('#login-button').hide();
-                $('#register-button').hide();
-                $('.user').show();
-                $('.log-out').show();
-            } else {
-                $('#login-button').show();
-                $('#register-button').show();
-                $('.user').hide();
-                $('.log-out').hide();
+            if (email) {
+                emailField.value = email;
             }
 
-              // Handle "Sewa Lapangan" click
-              document.querySelectorAll('.requires-login').forEach(item => {
+            let menu = document.querySelector("#menu-icon");
+            let navbar = document.querySelector(".navbar");
+
+            menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+
+          // Check if user is logged in
+        window.onload = function() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                if (isLoggedIn === 'true') {
+                    document.querySelector('#login-button').style.display = 'none';
+                    document.querySelector('#register-button').style.display = 'none';
+                    document.querySelector('.user').style.display = 'block';
+                    document.querySelector('.log-out').style.display = 'block';
+                } 
+            }
+
+            // Handle form submission
+            profileForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const newUsername = usernameField.value;
+                const newEmail = emailField.value;
+
+                if (newUsername && newEmail) {
+                    localStorage.setItem('username', newUsername);
+                    localStorage.setItem('email', newEmail);
+                    alert('Perubahan berhasil disimpan.');
+                } else {
+                    alert('Harap isi semua field.');
+                }
+            });
+
+            // Handle "Sewa Lapangan" click
+            document.querySelectorAll('.requires-login').forEach(item => {
                 item.addEventListener('click', function(event) {
                     if (!isLoggedIn) {
                         event.preventDefault();
@@ -132,17 +153,56 @@
                     }
                 });
             });
-        
+
             document.querySelectorAll('.modal .close').forEach(item => {
                 item.addEventListener('click', function() {
                     document.getElementById('login-modal').style.display = 'none';
                 });
             });
-        
+
             window.addEventListener('click', function(event) {
                 if (event.target === document.getElementById('login-modal')) {
                     document.getElementById('login-modal').style.display = 'none';
                 }
+            });
+
+            // Load booking history from localStorage
+            const bookingList = document.getElementById('booking-list');
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+            bookings.forEach(booking => {
+                const li = document.createElement('li');
+                li.textContent = `Lapangan: ${booking.lapangan}, Waktu: ${booking.waktu}`;
+                bookingList.appendChild(li);
+            });
+
+            // Event listener for the "Lanjutkan Pembayaran" button
+            const btnLanjutkan = document.getElementById('btnLanjutkan');
+            btnLanjutkan.addEventListener('click', function() {
+                // Get booking details
+                const lapangan = document.getElementById('lapangan').value;
+                const waktu = document.getElementById('waktu').value;
+
+                // Save booking details to localStorage
+                const booking = { lapangan, waktu };
+                bookings.push(booking);
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+
+                // Display the new booking in the list
+                const li = document.createElement('li');
+                li.textContent = `Lapangan: ${lapangan}, Waktu: ${waktu}`;
+                bookingList.appendChild(li);
+
+                // Show confirmation modals
+                const modal = document.getElementById('myModal');
+                modal.style.display = 'block';
+
+                const btnModalLanjutkan = document.getElementById('btnModalLanjutkan');
+                btnModalLanjutkan.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                    const modalTerimaKasih = document.getElementById('modalTerimaKasih');
+                    modalTerimaKasih.style.display = 'block';
+                });
             });
         });
     </script>

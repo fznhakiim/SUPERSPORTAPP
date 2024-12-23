@@ -1,6 +1,3 @@
-
-// orderBook.js
-
 document.addEventListener('DOMContentLoaded', function() {
     // Ambil query parameter selectedItems
     const urlParams = new URLSearchParams(window.location.search);
@@ -83,6 +80,29 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none'; // Sembunyikan modal pertama
             const modalTerimaKasih = document.getElementById('modalTerimaKasih');
             modalTerimaKasih.style.display = 'block'; // Tampilkan modal ucapan terima kasih
+
+            // Save booking details to localStorage
+            const currentUser = localStorage.getItem('currentUser'); // Ambil pengguna yang sedang login
+            if (!currentUser) {
+                alert('Anda harus login terlebih dahulu.');
+                return;
+            }
+
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            selectedItems.forEach(item => {
+                const booking = {
+                    user: currentUser, // Tambahkan informasi pengguna yang sedang login
+                    gor: gorName, 
+                    lapangan: item.checkbox,
+                    tanggal: item.tanggal,
+                    price: item.price
+                };
+                bookings.push(booking);
+            });
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+
+            // Refresh riwayat pemesanan setelah pemesanan baru
+            displayBookingHistory();
         });
 
         // Event listener untuk tombol "Kembali" di dalam modal pertama
@@ -99,4 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Misalnya, kembali ke halaman utama atau halaman lain
         window.location.href = 'Home.html'; // Ganti dengan halaman tujuan Anda
     });
+
+    // Panggil fungsi untuk menampilkan riwayat pemesanan saat halaman dimuat
+    displayBookingHistory();
 });
