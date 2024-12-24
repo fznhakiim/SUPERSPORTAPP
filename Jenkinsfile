@@ -44,14 +44,20 @@ pipeline {
             steps {
                 script {
                     // Pastikan branch utama aktif sebelum melakukan push
-                    bat """
-                        git config user.name "fznhakiim"
-                        git config user.email "zanziah@gmail.com"
-                        git checkout ${env.GIT_BRANCH}
-                        git add .
-                        git commit -m "Automated commit from Jenkins pipeline" || echo "Nothing to commit"
-                        git push origin ${env.GIT_BRANCH}
-                    """
+                    def changes = bat(script: 'git status --porcelain', returnStdout: true).trim()
+                    if (changes) {
+                        echo "Changes detected, committing and pushing..."
+                        bat """
+                            git config user.name "fznhakiim"
+                            git config user.email "zanziah@gmail.com"
+                            git checkout ${env.GIT_BRANCH}
+                            git add .
+                            git commit -m "Automated commit from Jenkins pipeline"
+                            git push origin ${env.GIT_BRANCH}
+                        """
+                    } else {
+                        echo "No changes to commit."
+                    }
                 }
             }
         }
