@@ -1,49 +1,69 @@
 pipeline {
     agent any
+
+    environment {
+        GIT_REPO_URL = 'https://github.com/fznhakiim/SUPERSPORTAPP.git'
+        GIT_BRANCH = 'main' // Ubah jika branch Anda berbeda
+        GIT_CREDENTIALS_ID = 'SuperSportApp' // ID kredensial GitHub Anda di Jenkins
+    }
+
+    triggers {
+        cron('H/15 * * * *') // Menjalankan pipeline setiap 15 menit
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code...'
-                git branch: 'main', url: 'https://github.com/fznhakiim/PBL-SuperSportApp.git'
+                checkout([$class: 'GitSCM', 
+                    branches: [[name: env.GIT_BRANCH]],
+                    userRemoteConfigs: [[
+                        url: env.GIT_REPO_URL,
+                        credentialsId: env.GIT_CREDENTIALS_ID
+                    ]]
+                ])
             }
         }
+
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                // Tambahkan langkah build jika diperlukan
+                // Tambahkan perintah build proyek Anda di sini, misalnya:
+                // bat 'gradlew build' untuk Gradle, atau sesuai kebutuhan
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Tambahkan langkah testing jika diperlukan
+                // Tambahkan perintah pengujian di sini, misalnya:
+                // bat 'gradlew test' atau sesuai kebutuhan
             }
         }
+
         stage('Push Changes') {
             steps {
                 script {
                     bat '''
-                    REM Path ke workspace Jenkins
-                    SET REPO_PATH=%cd%
-
-                    REM Konfigurasi username dan email untuk Git
-                    git config --global user.name "fznhakiim"
-                    git config --global user.email "zanziah@gmail.com"
-
-                    REM Tambahkan perubahan dan commit
+                    git config user.name "fznhakiim"
+                    git config user.email "zanziah@gmail.com"
                     git add .
-                    git commit -m "Auto commit by Jenkins at %DATE% %TIME%" || echo No changes to commit.
-
-                    REM Push ke branch main
-                    git push origin main
+                    git commit -m "Automated commit from Jenkins pipeline"
+                    git push ${GIT_REPO_URL} ${GIT_BRANCH}
                     '''
                 }
             }
         }
     }
+
     post {
         always {
-            echo 'Pipeline execution completed!'
+            echo 'Pipeline completed.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+        success {
+            echo 'Pipeline succeeded.'
         }
     }
 }
