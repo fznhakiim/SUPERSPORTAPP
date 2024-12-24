@@ -27,29 +27,31 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                // Tambahkan perintah build proyek Anda di sini, misalnya:
-                // bat 'gradlew build' untuk Gradle, atau sesuai kebutuhan
+                // Tambahkan perintah build proyek Anda di sini
+                // Contoh: bat 'gradlew build'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Tambahkan perintah pengujian di sini, misalnya:
-                // bat 'gradlew test' atau sesuai kebutuhan
+                // Tambahkan perintah pengujian di sini
+                // Contoh: bat 'gradlew test'
             }
         }
 
         stage('Push Changes') {
             steps {
                 script {
-                    bat '''
-                    git config user.name "fznhakiim"
-                    git config user.email "zanziah@gmail.com"
-                    git add .
-                    git commit -m "Automated commit from Jenkins pipeline"
-                    git push ${GIT_REPO_URL} ${GIT_BRANCH}
-                    '''
+                    // Pastikan branch utama aktif sebelum melakukan push
+                    bat """
+                        git config user.name "fznhakiim"
+                        git config user.email "zanziah@gmail.com"
+                        git checkout ${env.GIT_BRANCH}
+                        git add .
+                        git commit -m "Automated commit from Jenkins pipeline" || echo "Nothing to commit"
+                        git push origin ${env.GIT_BRANCH}
+                    """
                 }
             }
         }
